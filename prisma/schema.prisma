@@ -13,10 +13,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Produtos{
-  id Int @id @default(autoincrement())
-  name String
-  price Float
-  stock Int
-  brand String
+model Produtos {
+  id        Int      @id @default(autoincrement())
+  name      String //nome
+  price     Float //preço
+  qtd     Int //qtd de produto
+  brand     String //marca
+  category   String? //categoria
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
