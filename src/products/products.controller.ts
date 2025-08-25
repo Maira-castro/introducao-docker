@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { ProductsService } from './products.service';
 import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 import { createProductDto } from './dto/create-products.dto';
-import { UpdatePlaceDto } from './dto/update-products.dto';
+import { UpdateProductDto } from './dto/update-products.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -40,10 +40,10 @@ export class ProductsController {
     @ApiBadRequestResponse({description:'Erro de validação de dados'})
     @ApiBody({
         description: 'formulário atualização de Produto',
-        type: UpdatePlaceDto
+        type: UpdateProductDto
     })
      @ApiResponse({ status: 201, description: 'Produto atualizado com sucesso!' })
-    async updateProduct(@Param('id') id: number, @Body() data: UpdatePlaceDto) {
+    async updateProduct(@Param('id') id: number, @Body() data: UpdateProductDto) {
         return this.products.putProduct(Number(id), data)
     }
 
