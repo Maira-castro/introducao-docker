@@ -18,7 +18,7 @@ export class ProductsService {
     }
 
     async productById(id: number): Promise<Produtos | null> {
-        const product = this.prismaService.produtos.findUnique({ where: { id } })
+        const product = await this.prismaService.produtos.findUnique({ where: { id } })
         if (!product) {
             throw new NotFoundException('ID não encontrado!')
         }
@@ -33,7 +33,7 @@ export class ProductsService {
     }
 
     async deleteProduct(id: number): Promise<Produtos> {
-        const exist = this.prismaService.produtos.findUnique({ where: { id } })
+        const exist =await this.prismaService.produtos.findUnique({ where: { id } })
         if (!exist) throw new NotFoundException('Produto não encontrado')
         const deleteProduct = await this.prismaService.produtos.delete({ where: { id } })
         return deleteProduct
