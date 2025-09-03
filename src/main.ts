@@ -18,6 +18,13 @@ async function bootstrap() {
     .setTitle('API de Produtos')
     .setDescription('Documentação da API de produtos')
     .setVersion('1.0')
+    .addBearerAuth({//esquema JWT Bearer
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'Authorization',
+      in: 'header'
+    })
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
@@ -25,6 +32,6 @@ async function bootstrap() {
 
   //  await app.listen(process.env.API_PORT ?? 3001);
 
-  await app.listen(3002);
+  await app.listen(3001);
 }
 bootstrap();

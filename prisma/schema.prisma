@@ -13,13 +13,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum User {
+  ADMINISTRADOR
+  CLIENTE
+}
+
 model Produtos {
   id        Int      @id @default(autoincrement())
   name      String //nome
   price     Float //preço
-  qtd     Int //qtd de produto
+  qtd       Int //qtd de produto
   brand     String //marca
-  category   String? //categoria
+  category  String? //categoria
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Users {
+  id            String  @id @default(uuid())
+  name          String
+  email         String @unique
+  phone         String?
+  password      String?
+  typeUser User @default(CLIENTE)
+}
+
