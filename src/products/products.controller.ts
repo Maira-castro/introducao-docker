@@ -4,7 +4,7 @@ import { ApiBadRequestResponse, ApiBearerAuth, ApiBody, ApiCreatedResponse, ApiO
 import { createProductDto } from './dto/create-products.dto';
 import { UpdateProductDto } from './dto/update-products.dto';
 import { AdminGuard } from '../auth/admin.guard';
-import { JwtAuthGuard } from 'src/auth/jwt.guard';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 
 @Controller('products')
 export class ProductsController {
