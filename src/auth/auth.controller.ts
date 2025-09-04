@@ -22,7 +22,7 @@ export class AuthController {
     }
 
     @UseGuards(JwtAuthGuard, AdminGuard)
-       @ApiBearerAuth()
+    @ApiBearerAuth()
     @Post('register-admin')
     @ApiBody({ type: RegisterUserDto })
     @ApiOperation({ summary: 'Cadastrar usuario administrador' })
