@@ -24,7 +24,7 @@ export class ProfileController {
 
 
     @Delete()
-    @ApiOperation({ summary: 'Deletar usuário por ID' })
+    @ApiOperation({ summary: 'Deletar usuário' })
     @ApiResponse({ status: 200, description: 'Usuário deletado com sucesso' })
     @ApiResponse({ status: 404, description: 'Usuário não encontrado' })
     async delete(@Req() req) {
