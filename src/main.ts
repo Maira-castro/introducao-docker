@@ -8,17 +8,17 @@ async function bootstrap() {
 
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // Remove propriedades não decoradas no DTO
-      forbidNonWhitelisted: true, // Retorna erro se enviar propriedades não permitidas
-      transform: true, // Transforma os tipos automaticamente (ex: string para number)
+      whitelist: true, 
+      forbidNonWhitelisted: true,
+      transform: true,
     })
   );
   // Configurações da documentação Swagger
   const config = new DocumentBuilder()
-    .setTitle('API de Produtos')
-    .setDescription('Documentação da API de produtos')
+    .setTitle('API de Gerenciamento de produtos')
+    .setDescription('API para gerenciamento de produtos, com autenticação de usuários e controle de perfil.')
     .setVersion('1.0')
-    .addBearerAuth({//esquema JWT Bearer
+    .addBearerAuth({
       type: 'http',
       scheme: 'bearer',
       bearerFormat: 'JWT',
